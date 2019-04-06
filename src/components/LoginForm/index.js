@@ -223,8 +223,8 @@ class LoginForm extends React.Component{
                         </div>
                         :
                         <div>
-                            <p className='loginPLS'>+++Необходимо пройти авторизацию+++</p>
-                            <p className='loginPLSinfo'>+++Омниссия не поощряет неавторизованные подключения+++</p>
+                            <p className='loginPLS'>Вы не авторизованы!</p>
+                            <p className='loginPLSinfo'>Пожалуйста, войдите в систему</p>
                         </div>
                     }
 

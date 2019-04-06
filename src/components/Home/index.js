@@ -91,13 +91,12 @@ class Home extends React.Component{
 
                     <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
                         <div>
-                            <h2>Homepage</h2>
-                            <p className='info' style={{font: '16pt sans-serif'}}>
+                            <h1>Homepage</h1>
+                            <p className='info'>
                                 Лабораторная работа №4.<br/>
-                                Вариант: 21123<br/>
-                                Выполнили: Кирилл и его друг Черный<br/>
-                                (Черный К. и Солдатов И.)<br/>
-                                Группа Р3211<br/>
+                                Вариант: 18006<br/>
+                                Выполнили: Вербовой Александр, Базарова Анна<br/>
+                                Группа: Р3200<br/>
                             </p>
                             <LoginForm history={this.history}/>
                         </div>
@@ -106,13 +105,12 @@ class Home extends React.Component{
 
                     <MediaQuery maxDeviceWidth={828}>
                         <div>
-                            <h4>Homepage</h4>
-                            <p className='info' style={{font: '12pt sans-serif'}}>
+                            <h1>Homepage</h1>
+                            <p className='info'>
                                 Лабораторная работа №4.<br/>
-                                Вариант: 21123<br/>
-                                Выполнили: Кирилл и его друг Черный<br/>
-                                (Черный К. и Солдатов И.)<br/>
-                                Группа Р3211<br/>
+                                Вариант: 18006<br/>
+                                Выполнили: Вербовой Александр, Базарова Анна<br/>
+                                Группа: Р3200<br/>
                             </p>
                             <LoginForm history={this.history}/>
                         </div>
