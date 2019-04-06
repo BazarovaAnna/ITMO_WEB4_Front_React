@@ -22,7 +22,7 @@ class PointForm extends React.Component{
         this.pointFromCanvas = this.pointFromCanvas.bind(this);
     }
 
-    testSession() {
+    testSession() {{/*TODO?*/}
         axios.get('http://localhost:8080/results/get', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
@@ -54,7 +54,7 @@ class PointForm extends React.Component{
         })
     };
 
-    handleSubmit(event){
+    handleSubmit(event){{/*TODO?*/}
         event.preventDefault();
         if(this.validateY()){
             var params = new URLSearchParams();

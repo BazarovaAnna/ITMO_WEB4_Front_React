@@ -16,7 +16,7 @@ class PointsPage extends React.Component{
         this.logout = this.logout.bind(this);
     }
 
-    testSession() {
+    testSession() {{/*TODO?*/}
         axios.get('http://localhost:8080/results/get', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
@@ -225,7 +225,7 @@ class PointsPage extends React.Component{
     }
 
 
-    logout(){
+    logout(){{/*TODO?*/}
         axios.get('http://localhost:8080/logout',{withCredentials:true})
             .catch(err => {
                     this.props.setUnAuth();
