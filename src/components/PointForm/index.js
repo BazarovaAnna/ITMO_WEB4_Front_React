@@ -38,7 +38,7 @@ class PointForm extends React.Component{
 
     handleChange(event){
         this.setState({[event.target.name]: event.target.value});
-        if(!this.validateY()) this.showInval();
+        if(!this.validateY()||!this.validateX()||!this.validateR()) this.showInval();
         else this.hideInval();
     }
 
@@ -84,7 +84,15 @@ class PointForm extends React.Component{
 
     validateY(){
         let y = parseFloat(this.state.y);
-        return (y > -3 && y < 5) || (this.state.y === "");
+        return (y > -3 && y < 3) || (this.state.y === "");
+    }
+    validateX(){
+        let x = parseFloat(this.state.x);
+        return (x > -3 && x < 3) || (this.state.x === "");
+    }
+    validateR(){
+        let r = parseFloat(this.state.r);
+        return (r > -3 && r < 3) || (this.state.r === "");
     }
     render() {
         let error;
@@ -160,87 +168,12 @@ class PointForm extends React.Component{
                     <form ref={f => this.sbf = f} className="pointForm" style={{marginLeft:'15%', marginRight: '15%', width: '70%'}} onSubmit={this.handleSubmit.bind(this)} >
                         <div style={{height: '200px'}}>
                             <table className="radioPanelX" style={bigX}>
-                                <thead>Значение Х</thead>
+                                <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-4" checked={this.state.x === "-4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -4
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-3" checked={this.state.x === "-3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-2" checked={this.state.x === "-2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -2
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-1" checked={this.state.x === "-1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -1
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="0" checked={this.state.x === "0"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            0
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="1" checked={this.state.x === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                    </td>
+                                    <input type="text" className="x" style={{width: '380px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
                                 </tr>
 
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="2" checked={this.state.x === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="3" checked={this.state.x === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="4" checked={this.state.x === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                    </td>
-                                </tr>
                                 </tbody>
                             </table>
 
@@ -248,42 +181,14 @@ class PointForm extends React.Component{
                                 <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '380px'}} value={this.state.y} onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5" name="y" required/>
+                                    <input type="text" className="y" style={{width: '380px'}} value={this.state.y} onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 3" name="y" required/>
                                 </tr>
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <label>
-                                            <input name="r" type="radio" value="1" checked={this.state.r === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="2" checked={this.state.r === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="3" checked={this.state.r === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="4" checked={this.state.r === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="5" checked={this.state.r === "5"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            5
-                                        </label>
+                                        <input type="text" className="r" style={{width: '380px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
+
                                     </label>
                                 </tr>
                                 </tbody>
@@ -316,83 +221,7 @@ class PointForm extends React.Component{
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-4" checked={this.state.x === "-4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -4
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-3" checked={this.state.x === "-3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-2" checked={this.state.x === "-2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -2
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-1" checked={this.state.x === "-1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -1
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="0" checked={this.state.x === "0"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            0
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="1" checked={this.state.x === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="2" checked={this.state.x === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="3" checked={this.state.x === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="4" checked={this.state.x === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                    </td>
+                                    <input type="text" className="x" style={{width: '200px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
                                 </tr>
                                 </tbody>
                             </table>
@@ -407,36 +236,8 @@ class PointForm extends React.Component{
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <label>
-                                            <input name="r" type="radio" value="1" checked={this.state.r === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="2" checked={this.state.r === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="3" checked={this.state.r === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="4" checked={this.state.r === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="5" checked={this.state.r === "5"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            5
-                                        </label>
+                                        <input type="text" className="r" style={{width: '200px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
+
                                     </label>
                                 </tr>
                                 </tbody>
@@ -468,83 +269,8 @@ class PointForm extends React.Component{
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-4" checked={this.state.x === "-4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -4
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-3" checked={this.state.x === "-3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-2" checked={this.state.x === "-2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -2
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="-1" checked={this.state.x === "-1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            -1
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="0" checked={this.state.x === "0"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            0
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="1" checked={this.state.x === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                    </td>
-                                </tr>
+                                    <input type="text" className="x" style={{width: '100px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
 
-                                <tr>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="2" checked={this.state.x === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="3" checked={this.state.x === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                    </td>
-                                    <td>
-                                        <label>
-                                            <input name="x" type="radio" value="4" checked={this.state.x === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                    </td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -558,37 +284,9 @@ class PointForm extends React.Component{
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
-                                        Значение R:<br/>
-                                        <label>
-                                            <input name="r" type="radio" value="1" checked={this.state.r === "1"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            1
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="2" checked={this.state.r === "2"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            2
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="3" checked={this.state.r === "3"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            3
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="4" checked={this.state.r === "4"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            4
-                                        </label>
-                                        <label>
-                                            <input name="r" type="radio" value="5" checked={this.state.r === "5"}
-                                                   onChange={this.handleChange.bind(this)}
-                                            />
-                                            5
-                                        </label>
+                                        Значение R:
+                                        <input type="text" className="r" style={{width: '100px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
+
                                     </label>
                                 </tr>
                                 </tbody>
