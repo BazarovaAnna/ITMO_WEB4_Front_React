@@ -126,6 +126,7 @@ class LoginForm extends React.Component{
             font: '16pt sans-serif',
         };
         return(
+            <div id="page">
             <div className="login">
                 <button onClick={this.showLogin} style={buttonBig} className="ordinary">Login</button>
 
@@ -228,7 +229,7 @@ class LoginForm extends React.Component{
                         </div>
                     }
 
-            </div>
+            </div></div>
         )
     }
 }

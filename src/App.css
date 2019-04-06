@@ -55,16 +55,3 @@ a:active{
     border-radius: 15px;
 }
 
-@font-face {
-    font-family: 'MyFont1';
-    src: url('../fonts/PoiretOne-Regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'MyFont2';
-    src: url('../fonts/Margot Fette.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
