@@ -45,27 +45,27 @@ class Home extends React.Component{
                 <div>
                     <MediaQuery minDeviceWidth={1176}>
                     <div>
-                        <h1>You are already logged</h1>
+                        <h1>Вы уже вошли в систему</h1>
                         <div className="buttonHolder">
-                        <button onClick={this.logout} style={buttonBig}>Logout</button>
+                        <button onClick={this.logout} style={buttonBig}>Выйти</button>
                         </div>
                     </div>
                     </MediaQuery>
 
                     <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
                         <div>
-                            <h2>You are already logged</h2>
+                            <h2>Вы уже вошли в систему</h2>
                             <div className="buttonHolder">
-                            <button onClick={this.logout} style={buttonBig}>Logout</button>
+                            <button onClick={this.logout} style={buttonBig}>Выйти</button>
                             </div>
                         </div>
                     </MediaQuery>
 
                     <MediaQuery maxDeviceWidth={828}>
                         <div>
-                            <h4>You are already logged</h4>
+                            <h4>Вы уже вошли в систему</h4>
                             <div className="buttonHolder">
-                            <button onClick={this.logout} style={buttonSmall}>Logout</button>
+                            <button onClick={this.logout} style={buttonSmall}>Выйти</button>
                             </div>
                         </div>
                     </MediaQuery>
@@ -81,10 +81,9 @@ class Home extends React.Component{
                             <h1>Homepage</h1>
                             <p className='info'>
                                 Лабораторная работа №4.<br/>
-                                Вариант: 21123<br/>
-                                Выполнили: Кирилл и его друг Черный<br/>
-                                (Черный К. и Солдатов И.)<br/>
-                                Группа Р3211<br/>
+                                Вариант: 18006<br/>
+                                Выполнили: Вербовой Александр, Базарова Анна<br/>
+                                Группа: Р3200<br/>
                             </p>
                             <LoginForm history={this.history}/>
                         </div>

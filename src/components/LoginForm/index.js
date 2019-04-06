@@ -140,7 +140,7 @@ class LoginForm extends React.Component{
                                 <input type="text" value={this.state.username} onChange={this.onChange.bind(this)} placeholder="Enter Username" name="username" required/>
                                 <label htmlFor="password"><b>Password</b></label>
                                 <input type="password" value={this.state.password}  onChange={this.onChange.bind(this)} placeholder="Enter Password" name="password" required/>
-                                {this.state.err ? <p className='loginErr'>Не удалось авторизоваться, проверьте правильность введенных данных</p> : null}
+                                {this.state.err ? <p className='loginErr'>Ошибка ввода, проверьте правильность заполнения полей</p> : null}
 
                                 <div>
                                     <div style={{display: 'inline-block'}}>
@@ -168,7 +168,7 @@ class LoginForm extends React.Component{
                                         <div className="container">
                                             <input type="text" value={this.state.username} onChange={this.onChange.bind(this)} placeholder="Enter Username" name="username" style={{width: '400px'}} required/>
                                             <input type="password" value={this.state.password}  onChange={this.onChange.bind(this)} placeholder="Enter Password" name="password" style={{width: '400px'}} required/>
-                                            {this.state.err ? <p className='loginErr'>Не удалось авторизоваться, проверьте правильность введенных данных</p> : null}
+                                            {this.state.err ? <p className='loginErr'>Ошибка ввода, проверьте правильность заполнения полей</p> : null}
 
                                             <div>
                                                 <div style={{display: 'inline-block'}}>

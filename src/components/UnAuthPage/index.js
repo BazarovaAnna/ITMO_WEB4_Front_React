@@ -7,20 +7,20 @@ class UnAuthPage extends React.Component{
             <div>
                 <MediaQuery minDeviceWidth={1176}>
                     <div className="Unauthorised">
-                        <h1>+++UNAUTHORISED+++</h1>
-                        <h2>+++OMNISSIAH COMMENDS ONLY AUTHORISED CONNECTIONS+++</h2>
+                        <h1>Вы не авторизованы!</h1>
+                        <h2>Пожалуйста, войдите в систему</h2>
                     </div>
                 </MediaQuery>
                 <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
                     <div className="Unauthorised">
-                        <h2>+++UNAUTHORISED+++</h2>
-                        <h4>+++OMNISSIAH COMMENDS ONLY AUTHORISED CONNECTIONS+++</h4>
+                        <h2>Вы не авторизованы!</h2>
+                        <h4>Пожалуйста, войдите в систему</h4>
                     </div>
                 </MediaQuery>
                 <MediaQuery maxDeviceWidth={828}>
                     <div className="Unauthorised">
-                        <h4>+++UNAUTHORISED+++</h4>
-                        <h4>+++OMNISSIAH COMMENDS ONLY AUTHORISED CONNECTIONS+++</h4>
+                        <h4>Вы не авторизованы!</h4>
+                        <h4>Пожалуйста, войдите в систему</h4>
                     </div>
                 </MediaQuery>
             </div>

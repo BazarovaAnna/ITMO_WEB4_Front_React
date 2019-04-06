@@ -33,7 +33,7 @@ class MyCanvas extends React.Component {
         );
 
         if(!all){
-            ctx.fillStyle="black";
+            ctx.fillStyle="red";
             ctx.font = "14px Times New Roman";
             ctx.fillText('Некоторые точки за пределами графика', 60, 480);
         }
@@ -46,8 +46,8 @@ class MyCanvas extends React.Component {
 
         //triangle
         ctx.beginPath();
-        ctx.strokeStyle = "#9a0000";
-        ctx.fillStyle = "rgba(154, 0, 0, 0.7)";
+        ctx.strokeStyle = "#00009a";
+        ctx.fillStyle = "rgba(0, 0, 154, 0.7)";
         ctx.moveTo(350, 250);
         ctx.lineTo(250, 350);
         ctx.lineTo(250, 250);
@@ -135,8 +135,8 @@ class MyCanvas extends React.Component {
 
     drawPoint(ctx, x, y, radius) {
 
-        if(this.check(x, y, radius)) ctx.fillStyle = "#00FF00";
-        else ctx.fillStyle = "#FF5000";
+        if(this.check(x, y, radius)) ctx.fillStyle = "green";
+        else ctx.fillStyle = "red";
         if(Math.abs(x)/radius > 1.25 || Math.abs(y)/radius >1.25) return false;
         ctx.beginPath();
         ctx.arc(250 + ((x / radius) * 200), 250 - ((y / radius) * 200), 3, 0, Math.PI * 2);

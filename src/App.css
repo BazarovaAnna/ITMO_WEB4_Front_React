@@ -1,5 +1,5 @@
 .Navigation{
-    border: solid 2px black;
+    border: solid 2px lightseagreen;
     margin: 20px 40px 40px;
     background-image: linear-gradient(to bottom right, white, grey);
     /*background-color: #888888;*/
@@ -7,31 +7,31 @@
 
 a{
     text-decoration: none;
-    color: black;
+    color: lightseagreen;
     font: 14pt sans-serif;
 }
 
 a:hover{
     text-decoration: underline;
-    background-image: linear-gradient(to bottom right, darkgrey, white);
+    background-image: linear-gradient(to bottom right, lightsteelblue, white);
 }
 
 a:active{
     text-decoration: underline;
-    background-image: linear-gradient(to bottom right, white, darkgrey);
+    background-image: linear-gradient(to bottom right, white, lightsteelblue);
 }
 
 .home{
     margin-left: 50px;
-    color: black;
+    color: lightseagreen;
     padding: 10px;
-    border-right: black 2px solid;
-    border-left: black 2px solid;
+    border-right: lightseagreen 2px solid;
+    border-left: lightseagreen 2px solid;
 }
 
 .points{
     margin-right: 50px;
-    border-right: black 2px solid;
+    border-right: lightseagreen 2px solid;
     padding: 10px;
 }
 
