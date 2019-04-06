@@ -41,33 +41,33 @@ class MyCanvas extends React.Component {
 
     drawBG(ctx, symbol){
         ctx.clearRect(0,0, 500, 500);
-        ctx.fillStyle = "rgba(0, 0, 42, 0.5)";
+        ctx.fillStyle = "lightsteelblue";
         ctx.fillRect(0, 0 , 500, 500);
 
         //triangle
         ctx.beginPath();
         ctx.strokeStyle = "#00009a";
-        ctx.fillStyle = "rgba(0, 0, 154, 0.7)";
-        ctx.moveTo(350, 250);
-        ctx.lineTo(250, 350);
+        ctx.fillStyle = "lightskyblue";
+        ctx.moveTo(250, 50);
+        ctx.lineTo(50, 250);
         ctx.lineTo(250, 250);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
 
-        //прямоугольник
+        //прямоугольник done
         ctx.beginPath();
-        ctx.moveTo(350, 250);
-        ctx.lineTo(350, 50);
-        ctx.lineTo(250, 50);
+        ctx.moveTo(150, 250);
+        ctx.lineTo(150, 450);
+        ctx.lineTo(250, 450);
         ctx.lineTo(250, 250);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
 
-        //сектор
+        //сектор done
         ctx.beginPath();
-        ctx.arc(250, 250, 200, Math.PI, 3*Math.PI/2,false);
+        ctx.arc(250, 250, 100, 2*Math.PI, 5*Math.PI/2,false);
         ctx.lineTo(250, 250);
         ctx.closePath();
         ctx.fill();
@@ -107,6 +107,7 @@ class MyCanvas extends React.Component {
 
         ctx.fillStyle="black";
         ctx.font = "20px Times New Roman bold";
+
         if((!isNaN(parseFloat(symbol)))&&(parseFloat(symbol)!=0)){
             ctx.fillText("-"+symbol, 40, 275);
             ctx.fillText("-"+ (symbol/2), 130, 275);
@@ -146,9 +147,9 @@ class MyCanvas extends React.Component {
     }
 
     check(x, y, r) {
-        return ((x >= 0 && x <= (r / 2)) && (y >= 0 && y <= r) //прямоугольник
-            || (x >= 0 && y < 0) && (y >= x - r / 2) //треугольник
-            || (x <= 0 && y >= 0) && (x * x + y * y <= r * r));
+        return ((x <= 0 && x >= -(r / 2)) && (y <= 0 && y >= -r) //прямоугольник
+            || (x <= 0 && y >= 0) && (y <= x + r) //треугольник
+            || (x >= 0 && y <= 0) && (x * x + y * y <= (r/2) * (r/2)));
     }
 
     _onMouseMove(e){
