@@ -19,7 +19,7 @@ const store = createStore(
 ReactDOM.render(
 
     <Provider store={store}>
-        <Router history={history}>{/*TODO?*/}
+        <Router history={history}>{/*TODO? need to add sth*/}
             <App />
         </Router>
     </Provider>
