@@ -100,6 +100,14 @@ class PointForm extends React.Component {
     render() {
         let error;
 
+        var formTableTable = {
+            width: '100%',
+            align: 'center',
+            verticalAlign: 'center',
+            textAlign: 'center',
+            margin: 0
+        };
+
         var formTable = {
             display: 'inline-block',
             textAlign: 'center',
@@ -165,54 +173,65 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
-                        <table width="100%"><tr><td>
-                        <div style={{height: '150px'}}>
-                            <table style={formTable}>
-                                <thead>Введите значения</thead>
+                        <table style={formTableTable}>
+                            <tr>
+                                <td>
+                                    <div style={{height: '150px'}}>
 
-                                <tbody>
-                                <tr>
-                                    <label style={bigX}>
-                                        Значение X:
-                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение X от -3 до 3"
-                                               name="x" required/>
-                                    </label>
-                                </tr>
+                                        <table style={formTable}>
+                                            <thead>Введите значения</thead>
 
-                                <tr>
-                                    <label style={bigY}>
-                                        Значение Y:
-                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение Y от -3 до 3"
-                                               name="y" required/>
-                                    </label>
-                                </tr>
+                                            <tbody>
+                                            <tr>
+                                                <label style={bigX}>
+                                                    Значение X:
+                                                    <input type="text" className="x" style={{width: '70%'}}
+                                                           value={this.state.x}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение X от -3 до 3"
+                                                           name="x" required/>
+                                                </label>
+                                            </tr>
 
-                                <tr>
-                                    {/*radius*/}
-                                    <label style={bigR}>
-                                        Значение R:
-                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение R от -3 до 3" name="r" required/>
+                                            <tr>
+                                                <label style={bigY}>
+                                                    Значение Y:
+                                                    <input type="text" className="y" style={{width: '70%'}}
+                                                           value={this.state.y}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение Y от -3 до 3"
+                                                           name="y" required/>
+                                                </label>
+                                            </tr>
 
-                                    </label>
-                                </tr>
-                                </tbody>
+                                            <tr>
+                                                {/*radius*/}
+                                                <label style={bigR}>
+                                                    Значение R:
+                                                    <input type="text" className="r" style={{width: '70%'}}
+                                                           value={this.state.r}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение R от -3 до 3" name="r" required/>
 
-                                <tfoot>
-                                {error}
-                                </tfoot>
-                            </table>
-                        </div>
-                            <br/></td><td>
-                        <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"w>1176"}
-                                      onRef={ref => this.child = ref}/>
-                        </div></td></tr></table>
+                                                </label>
+                                            </tr>
+                                            </tbody>
+
+                                            <tfoot>
+                                            {error}
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <br/>
+                                </td>
+                                <td>
+                                    <div>
+                                        <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"w>1176"}
+                                                  onRef={ref => this.child = ref}/>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
                         <br/>
                         <button type="submit" style={buttonBig}>Check</button>
                     </form>
@@ -223,56 +242,68 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
-                        <table><tr><td>
-                        <div style={{height: '150px'}}>
-                            <table style={formTable}>
-                                <thead>Введите значения</thead>
+                        <table style={formTableTable}>
+                            <tr style={{textAlign: 'center'}}>
+                                <td style={{textAlign: 'center'}}>
+                                    <div style={{height: '150px'}}>
+                                        <table style={formTable}>
+                                            <thead>Введите значения</thead>
 
-                                <tbody>
-                                <tr>
-                                    <label style={bigX}>
-                                        Значение X:
-                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение X от -3 до 3"
-                                               name="x" required/>
-                                    </label>
-                                </tr>
+                                            <tbody>
+                                            <tr>
+                                                <label style={bigX}>
+                                                    Значение X:
+                                                    <input type="text" className="x" style={{width: '70%'}}
+                                                           value={this.state.x}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение X от -3 до 3"
+                                                           name="x" required/>
+                                                </label>
+                                            </tr>
 
-                                <tr>
-                                    <label style={bigY}>
-                                        Значение Y:
-                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение Y от -3 до 3"
-                                               name="y" required/>
-                                    </label>
-                                </tr>
+                                            <tr>
+                                                <label style={bigY}>
+                                                    Значение Y:
+                                                    <input type="text" className="y" style={{width: '70%'}}
+                                                           value={this.state.y}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение Y от -3 до 3"
+                                                           name="y" required/>
+                                                </label>
+                                            </tr>
 
-                                <tr>
-                                    {/*radius*/}
-                                    <label style={bigR}>
-                                        Значение R:
-                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение R от -3 до 3" name="r" required/>
+                                            <tr>
+                                                {/*radius*/}
+                                                <label style={bigR}>
+                                                    Значение R:
+                                                    <input type="text" className="r" style={{width: '70%'}}
+                                                           value={this.state.r}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение R от -3 до 3" name="r" required/>
 
-                                    </label>
-                                </tr>
-                                </tbody>
+                                                </label>
+                                            </tr>
+                                            </tbody>
 
-                                <tfoot>
-                                {error}
-                                </tfoot>
-                            </table>
-                        </div></td><td>
-                        <br/>
-                        <div style={{width: '30%'}}>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"829<w<1175"}
-                                      onRef={ref => this.child = ref}/>
-                        </div>
-                        <br/>
-                        </td></tr></table>
+                                            <tfoot>
+                                            {error}
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{textAlign: 'center'}}>
+                                    <br/>
+                                    <div style={{width: '30%'}}>
+                                        <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                                                  width={"829<w<1175"}
+                                                  onRef={ref => this.child = ref}/>
+                                    </div>
+                                    <br/>
+                                </td>
+                            </tr>
+                        </table>
                         <button type="submit" style={buttonSmall}>Check</button>
 
 
@@ -283,55 +314,66 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
-                        <table><tr><td>
-                        <div style={{height: '150px'}}>
-                            <table style={formTable}>
-                                <thead>Введите значения</thead>
+                        <table style={formTableTable}>
+                            <tr>
+                                <td style={{textAlign: 'center'}}>
+                                    <div style={{height: '150px'}}>
+                                        <table style={formTable}>
+                                            <thead>Введите значения</thead>
 
-                                <tbody>
-                                <tr>
-                                    <label style={bigX}>
-                                        Значение X:
-                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение X от -3 до 3"
-                                               name="x" required/>
-                                    </label>
-                                </tr>
+                                            <tbody>
+                                            <tr>
+                                                <label style={bigX}>
+                                                    Значение X:
+                                                    <input type="text" className="x" style={{width: '70%'}}
+                                                           value={this.state.x}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение X от -3 до 3"
+                                                           name="x" required/>
+                                                </label>
+                                            </tr>
 
-                                <tr>
-                                    <label style={bigY}>
-                                        Значение Y:
-                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение Y от -3 до 3"
-                                               name="y" required/>
-                                    </label>
-                                </tr>
+                                            <tr>
+                                                <label style={bigY}>
+                                                    Значение Y:
+                                                    <input type="text" className="y" style={{width: '70%'}}
+                                                           value={this.state.y}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение Y от -3 до 3"
+                                                           name="y" required/>
+                                                </label>
+                                            </tr>
 
-                                <tr>
-                                    {/*radius*/}
-                                    <label style={bigR}>
-                                        Значение R:
-                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
-                                               onChange={this.handleChange.bind(this)}
-                                               placeholder="Значение R от -3 до 3" name="r" required/>
+                                            <tr>
+                                                {/*radius*/}
+                                                <label style={bigR}>
+                                                    Значение R:
+                                                    <input type="text" className="r" style={{width: '70%'}}
+                                                           value={this.state.r}
+                                                           onChange={this.handleChange.bind(this)}
+                                                           placeholder="Значение R от -3 до 3" name="r" required/>
 
-                                    </label>
-                                </tr>
-                                </tbody>
+                                                </label>
+                                            </tr>
+                                            </tbody>
 
-                                <tfoot>
-                                {error}
-                                </tfoot>
-                            </table>
-                        </div></td></tr><tr><td>
-                        <br/>
-                        <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"x<828"}
-                                      onRef={ref => this.child = ref}/>
-                        </div>
-                            <br/></td></tr></table>
+                                            <tfoot>
+                                            {error}
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{textAlign: 'center'}}>
+                                    <br/>
+                                    <div>
+                                        <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"x<828"}
+                                                  onRef={ref => this.child = ref}/>
+                                    </div>
+                                    <br/></td>
+                            </tr>
+                        </table>
                         <button type="submit" style={buttonSmall}>Check</button>
 
 
