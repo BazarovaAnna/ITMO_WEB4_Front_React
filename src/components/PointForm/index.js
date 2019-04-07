@@ -157,6 +157,7 @@ class PointForm extends React.Component {
         if (!this.validateY() || !this.validateX() || !this.validateR()) {
             error = <p className="Inval" style={{color: 'red'}}>Некорректные данные</p>;
         } else error = <p className="Inval" style={{color: 'red'}}/>;
+        // todo одна таблица с тремя tr, как для десктопных версий, сделать во все всех остальных
         return (
 
             <div>
@@ -257,7 +258,7 @@ class PointForm extends React.Component {
                             </table>
                         </div>
                         <br/>
-                        <div>
+                        <div style={{width: '30%'}}>
                             <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"829<w<1175"}
                                       onRef={ref => this.child = ref}/>
                         </div>

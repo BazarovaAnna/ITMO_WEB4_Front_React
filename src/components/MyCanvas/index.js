@@ -23,12 +23,12 @@ class MyCanvas extends React.Component {
         const ctx = this.refs.canvas.getContext('2d');
         let width=this.props.width;
         let w;
-        if(width==="w>1176"){//TODO need to think, how big these widths will be
+        if(width==="w>1176"){
             w=400;//ЕСЛИ ЧТО НУЖНО БЫЛО МЕНЯТЬ ТОЛЬКО
         }else if(width==="829<w<1175"){
-            w=200;//ЭТИ ЦИФЕРКИ
+            w=300;//ЭТИ ЦИФЕРКИ
         }else if(width==="x<828"){
-            w=100//И НИЧЕГО БОЛЬШЕ, И ТАКИЕ ЖЕ В МЕТОДЕ С TODO внизу
+            w=300//И НИЧЕГО БОЛЬШЕ, И ТАКИЕ ЖЕ В МЕТОДЕ С
         }else {w=400}
         let all = true;
         this.drawBG(ctx, r, w);
@@ -166,13 +166,13 @@ class MyCanvas extends React.Component {
 
     interactiveCanvas(e){
         let width=this.props.width;
-        let w;//TODO
+        let w;
         if(width==="w>1176"){
             w=400;
         }else if(width==="829<w<1175"){
-            w=200;
+            w=300;
         }else if(width==="x<828"){
-            w=100
+            w=300
         }else {w=400}
         let r = this.props.radius;
         let x = (((this.state.x - w/2) * r) / 0.4*w);
@@ -184,12 +184,12 @@ class MyCanvas extends React.Component {
     render() {
         let width=this.props.width;
         let w;
-        if(width==="w>1176"){//TODO
+        if(width==="w>1176"){
             w=400;
         }else if(width==="829<w<1175"){
-            w=200;
+            w=300;
         }else if(width==="x<828"){
-            w=100
+            w=300
         }else {w=400}
         return (
             <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={w} height={w}/>
