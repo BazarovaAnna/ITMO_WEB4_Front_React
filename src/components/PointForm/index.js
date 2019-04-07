@@ -162,9 +162,11 @@ class PointForm extends React.Component {
 
             <div>
                 <MediaQuery minDeviceWidth={1176}>
+
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
+                        <table width="100%"><tr><td>
                         <div style={{height: '150px'}}>
 
                             <table style={formTable}>
@@ -208,11 +210,11 @@ class PointForm extends React.Component {
                                 </tfoot>
                             </table>
                         </div>
-                        <br/>
+                            <br/></td><td>
                         <div>
                             <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"w>1176"}
                                       onRef={ref => this.child = ref}/>
-                        </div>
+                        </div></td></tr></table>
                         <br/>
                         <button type="submit" style={buttonBig}>Check</button>
                     </form>
@@ -223,6 +225,7 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
+                        <table><tr><td>
                         <div style={{height: '150px'}}>
                             <table style={formTable}>
                                 <thead>Введите значения</thead>
@@ -264,13 +267,14 @@ class PointForm extends React.Component {
                                 {error}
                                 </tfoot>
                             </table>
-                        </div>
+                        </div></td></tr><tr><td>
                         <br/>
                         <div style={{width: '30%'}}>
                             <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"829<w<1175"}
                                       onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
+                        </td></tr></table>
                         <button type="submit" style={buttonSmall}>Check</button>
 
 
@@ -281,6 +285,7 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
+                        <table><tr><td>
                         <div style={{height: '150px'}}>
                             <table style={formTable}>
                                 <thead>Введите значения</thead>
@@ -322,13 +327,13 @@ class PointForm extends React.Component {
                                 {error}
                                 </tfoot>
                             </table>
-                        </div>
+                        </div></td></tr><tr><td>
                         <br/>
                         <div>
                             <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"x<828"}
                                       onRef={ref => this.child = ref}/>
                         </div>
-                        <br/>
+                            <br/></td></tr></table>
                         <button type="submit" style={buttonSmall}>Check</button>
 
 
