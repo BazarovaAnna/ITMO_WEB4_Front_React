@@ -175,8 +175,8 @@ class MyCanvas extends React.Component {
             w=300
         }else {w=400}
         let r = this.props.radius;
-        let x = (((this.state.x - w/2) * r) / 0.4*w);
-        let y = (((-this.state.y + w/2) * r) / 0.4*w );
+        let x = (((this.state.x - w/2) * r) / 0.4*w);//TODO check here
+        let y = (((-this.state.y + w/2) * r) / 0.4*w );//TODO check here
         this.props.setPoint(x, y, r);
     }
 
@@ -191,9 +191,9 @@ class MyCanvas extends React.Component {
         }else if(width==="x<828"){
             w=300
         }else {w=400}
-        // todo вот здесь
+        
         return (
-            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas"/>
+            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={w} height={w}/>
         );
     }
 }
