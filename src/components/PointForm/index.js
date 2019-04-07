@@ -165,7 +165,6 @@ class PointForm extends React.Component {
         if (!this.validateY() || !this.validateX() || !this.validateR()) {
             error = <p className="Inval" style={{color: 'red'}}>Некорректные данные</p>;
         } else error = <p className="Inval" style={{color: 'red'}}/>;
-        //TODO сделать таблицу, где будет форма и канвас: в десктопной версии горизонтально, в других вертикально
         return (
 
             <div>
