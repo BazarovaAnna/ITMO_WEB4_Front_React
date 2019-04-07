@@ -56,7 +56,7 @@ class PointForm extends React.Component {
     handleSubmit(event) {
 
         event.preventDefault();
-        if (this.validateY()) {
+        if (this.validateY()&&this.validateX()&&this.validateR()) {
             var params = new URLSearchParams();
             params.append('x', this.state.x);
             params.append('y', this.state.y);
