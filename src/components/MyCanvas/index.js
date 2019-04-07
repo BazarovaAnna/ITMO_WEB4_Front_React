@@ -21,13 +21,21 @@ class MyCanvas extends React.Component {
 
     updateCanvas(r) {
         const ctx = this.refs.canvas.getContext('2d');
-
+        let width=this.props.width;
+        let w;
+        if(width==="w>1176"){
+            w=400;
+        }else if(width==="829<w<1175"){
+            w=200;
+        }else if(width==="x<828"){
+            w=100
+        }else {w=400}
         let all = true;
-        this.drawBG(ctx, r);
+        this.drawBG(ctx, r, w);
         // this.props.points.map(
         //     point => {
         //         return(
-        //             all &= this.drawPoint(ctx, point.x, point.y, r)
+        //             all &= this.drawPoint(ctx, point.x, point.y, r, w)
         //         )
         //     }
         // );
@@ -35,40 +43,40 @@ class MyCanvas extends React.Component {
         if(!all){
             ctx.fillStyle="red";
             ctx.font = "14px Times New Roman";
-            ctx.fillText('Некоторые точки за пределами графика', 60, 480);
+            ctx.fillText('Некоторые точки за пределами графика', 0.12*w, 0.96*w);
         }
     }
 
-    drawBG(ctx, symbol){
-        ctx.clearRect(0,0, 500, 500);
+    drawBG(ctx, symbol, w){
+        ctx.clearRect(0,0, w, w);//w=500
         ctx.fillStyle = "lightsteelblue";
-        ctx.fillRect(0, 0 , 500, 500);
+        ctx.fillRect(0, 0 , w, w);
 
         //triangle
         ctx.beginPath();
         ctx.strokeStyle = "#00009a";
         ctx.fillStyle = "lightskyblue";
-        ctx.moveTo(250, 50);
-        ctx.lineTo(50, 250);
-        ctx.lineTo(250, 250);
+        ctx.moveTo(w/2, w/10);
+        ctx.lineTo(w/10, w/2);//w/2=250
+        ctx.lineTo(w/2, w/2);//w/10=50
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
 
         //прямоугольник done
         ctx.beginPath();
-        ctx.moveTo(150, 250);
-        ctx.lineTo(150, 450);
-        ctx.lineTo(250, 450);
-        ctx.lineTo(250, 250);
+        ctx.moveTo(w*3/10, w/2);//w*3/10=150
+        ctx.lineTo(w*3/10, w*9/10);//w*9/10=450
+        ctx.lineTo(w/2, w*9/10);
+        ctx.lineTo(w/2, w/2);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
 
         //сектор done
         ctx.beginPath();
-        ctx.arc(250, 250, 100, 2*Math.PI, 5*Math.PI/2,false);
-        ctx.lineTo(250, 250);
+        ctx.arc(w/2, w/2, w/5, 2*Math.PI, 5*Math.PI/2,false);//w/5=100
+        ctx.lineTo(w/2, w/2);
         ctx.closePath();
         ctx.fill();
         ctx.stroke();
@@ -77,31 +85,31 @@ class MyCanvas extends React.Component {
         ctx.beginPath();
         ctx.strokeStyle = "black";
         ctx.lineWidth = "2";
-        ctx.moveTo(0, 250);
-        ctx.lineTo(500, 250);
-        ctx.moveTo(250, 0);
-        ctx.lineTo(250, 500);
+        ctx.moveTo(0, w/2);
+        ctx.lineTo(w, w/2);
+        ctx.moveTo(w/2, 0);
+        ctx.lineTo( w/2, w);
         ctx.stroke();
 
         //отметки
         ctx.beginPath();
-        ctx.moveTo(245, 50);
-        ctx.lineTo(255, 50);
-        ctx.moveTo(245, 150);
-        ctx.lineTo(255, 150);
-        ctx.moveTo(245, 350);
-        ctx.lineTo(255, 350);
-        ctx.moveTo(245, 450);
-        ctx.lineTo(255, 450);
+        ctx.moveTo(49*w/100, w/10);//49*w/100=245
+        ctx.lineTo(51*w/100, w/10);//51*w/100=255
+        ctx.moveTo(49*w/100, 3*w/10);
+        ctx.lineTo(51*w/100, 3*w/10);
+        ctx.moveTo(49*w/100, 7*w/10);
+        ctx.lineTo(255, 7*w/10);//7*w/10=350
+        ctx.moveTo(49*w/100, 9*w/10);
+        ctx.lineTo(51*w/100, 9*w/10);
 
-        ctx.moveTo(50, 245);
-        ctx.lineTo(50, 255);
-        ctx.moveTo(150, 245);
-        ctx.lineTo(150, 255);
-        ctx.moveTo(350, 245);
-        ctx.lineTo(350, 255);
-        ctx.moveTo(450, 245);
-        ctx.lineTo(450, 255);
+        ctx.moveTo(w/10, 49*w/100);
+        ctx.lineTo(w/10, 51*w/100);
+        ctx.moveTo(3*w/10, 49*w/100);
+        ctx.lineTo(3*w/10, 51*w/100);
+        ctx.moveTo(7*w/10, 49*w/100);
+        ctx.lineTo(7*w/10, 51*w/100);
+        ctx.moveTo(9*w/10, 49*w/100);
+        ctx.lineTo(9*w/10, 51*w/100);
         ctx.closePath();
         ctx.stroke();
 
@@ -109,38 +117,38 @@ class MyCanvas extends React.Component {
         ctx.font = "20px Times New Roman bold";
 
         if((!isNaN(parseFloat(symbol)))&&(parseFloat(symbol)!=0)){
-            ctx.fillText("-"+symbol, 40, 275);
-            ctx.fillText("-"+ (symbol/2), 130, 275);
-            ctx.fillText(symbol/2, 340, 275);
-            ctx.fillText(symbol, 445, 275);
+            ctx.fillText("-"+symbol, 2*w/25, 11*w/20);//2*w/25=40 11*w/20=275
+            ctx.fillText("-"+ (symbol/2), w*0.26, 11*w/20);//w*0.26=130
+            ctx.fillText(symbol/2, w*0.68, 0.55*w);//340 275
+            ctx.fillText(symbol, 0.89*w, 0.55*w);//445 275
 
-            ctx.fillText(symbol, 265, 53);
-            ctx.fillText(symbol/2, 265, 153);
-            ctx.fillText("-"+(symbol/2), 265, 353);
-            ctx.fillText("-"+symbol, 265, 453);
+            ctx.fillText(symbol, 0.53*w, 0.106*w);
+            ctx.fillText(symbol/2, 0.53*w, 0.306*w);
+            ctx.fillText("-"+(symbol/2), 0.53*w, 0.706*w);
+            ctx.fillText("-"+symbol, 0.53*w, 0.906*w);
             ctx.stroke();
         }
         else{
-            ctx.fillText("-R", 40, 275);
-            ctx.fillText("-R/2", 130, 275);
-            ctx.fillText("R/2", 340, 275);
-            ctx.fillText("R", 445, 275);
+            ctx.fillText("-R", 0.08*w, 0.55*w);
+            ctx.fillText("-R/2", 0.26*w, 0.55*w);
+            ctx.fillText("R/2", 0.68*w, 0.55*w);
+            ctx.fillText("R", 0.89*w, 0.55*w);
 
-            ctx.fillText("R", 265, 53);
-            ctx.fillText("R/2", 265, 153);
-            ctx.fillText("-R/2", 265, 353);
-            ctx.fillText("-R", 265, 453);
+            ctx.fillText("R", 0.53*w, 0.106*w);
+            ctx.fillText("R/2", 0.53*w, 0.306*w);
+            ctx.fillText("-R/2", 0.53*w, 0.706*w);
+            ctx.fillText("-R", 0.53*w, 0.906*w);
             ctx.stroke();
         }
     }
 
-    drawPoint(ctx, x, y, radius) {
+    drawPoint(ctx, x, y, radius, w) {
 
         if(this.check(x, y, radius)) ctx.fillStyle = "green";
         else ctx.fillStyle = "red";
         if(Math.abs(x)/radius > 1.25 || Math.abs(y)/radius >1.25) return false;
         ctx.beginPath();
-        ctx.arc(250 + ((x / radius) * 200), 250 - ((y / radius) * 200), 3, 0, Math.PI * 2);
+        ctx.arc(w/2 + ((x / radius) * 0.4*w), w/2 - ((y / radius) * 0.4*w), 3, 0, Math.PI * 2);
         ctx.stroke();
         ctx.fill();
         return true;
@@ -157,16 +165,34 @@ class MyCanvas extends React.Component {
     }
 
     interactiveCanvas(e){
+        let width=this.props.width;
+        let w;
+        if(width==="w>1176"){
+            w=400;
+        }else if(width==="829<w<1175"){
+            w=200;
+        }else if(width==="x<828"){
+            w=100
+        }else {w=400}
         let r = this.props.radius;
-        let x = (((this.state.x - 250) * r) / 200);
-        let y = (((-this.state.y + 250) * r) / 200 );
+        let x = (((this.state.x - w/2) * r) / 0.4*w);
+        let y = (((-this.state.y + w/2) * r) / 0.4*w );
         this.props.setPoint(x, y, r);
     }
 
 
     render() {
+        let width=this.props.width;
+        let w;
+        if(width==="w>1176"){
+            w=400;
+        }else if(width==="829<w<1175"){
+            w=200;
+        }else if(width==="x<828"){
+            w=100
+        }else {w=400}
         return (
-            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={500} height={500}/>
+            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={w} height={w}/>
         );
     }
 }

@@ -208,7 +208,7 @@ class PointForm extends React.Component {
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"w>1176"}
                                       onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
@@ -239,7 +239,7 @@ class PointForm extends React.Component {
                                 <tr>
                                     <input type="text" className="y" style={{width: '70%'}}
                                            value={this.state.y} onChange={this.handleChange.bind(this)}
-                                           placeholder="Значение Y от -3 до 5" name="y" required/>
+                                           placeholder="Значение Y от -3 до 3" name="y" required/>
                                 </tr>
                                 <tr>
                                     {/*radius*/}
@@ -258,7 +258,7 @@ class PointForm extends React.Component {
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"829<w<1175"}
                                       onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
@@ -290,7 +290,7 @@ class PointForm extends React.Component {
                                 <tbody>
                                 <tr>
                                     <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
-                                           onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5"
+                                           onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 3"
                                            name="y" required/>
                                 </tr>
                                 <tr>
@@ -314,7 +314,7 @@ class PointForm extends React.Component {
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"x<828"}
                                       onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
