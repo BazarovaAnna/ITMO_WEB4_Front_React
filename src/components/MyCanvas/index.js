@@ -24,11 +24,11 @@ class MyCanvas extends React.Component {
         let width=this.props.width;
         let w;
         if(width==="w>1176"){//TODO need to think, how big these widths will be
-            w=400;
+            w=400;//ЕСЛИ ЧТО НУЖНО БЫЛО МЕНЯТЬ ТОЛЬКО
         }else if(width==="829<w<1175"){
-            w=200;
+            w=200;//ЭТИ ЦИФЕРКИ
         }else if(width==="x<828"){
-            w=100
+            w=100//И НИЧЕГО БОЛЬШЕ, И ТАКИЕ ЖЕ В МЕТОДЕ С TODO внизу
         }else {w=400}
         let all = true;
         this.drawBG(ctx, r, w);
@@ -166,7 +166,7 @@ class MyCanvas extends React.Component {
 
     interactiveCanvas(e){
         let width=this.props.width;
-        let w;
+        let w;//TODO
         if(width==="w>1176"){
             w=400;
         }else if(width==="829<w<1175"){

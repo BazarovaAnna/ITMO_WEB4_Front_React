@@ -158,7 +158,7 @@ class PointForm extends React.Component {
             error = <p className="Inval" style={{color: 'red'}}>Некорректные данные</p>;
         } else error = <p className="Inval" style={{color: 'red'}}/>;
         return (
-            
+
             <div>
                 <MediaQuery minDeviceWidth={1176}>
                     <form ref={f => this.sbf = f} className="pointForm"
