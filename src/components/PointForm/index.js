@@ -223,35 +223,42 @@ class PointForm extends React.Component {
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
                         <div style={{height: '150px'}}>
-                            <table className="radioPanelX" style={bigX}>
-                                <thead>Значение Х</thead>
-                                <tbody>
-                                <tr>
-                                    <input type="text" className="x" style={{width: '70%'}}
-                                           value={this.state.x} onChange={this.handleChange.bind(this)}
-                                           placeholder="Значение X от -3 до 3" name="x" required/>
-                                </tr>
-                                </tbody>
-                            </table>
+                            <table style={formTable}>
+                                <thead>Введите значения</thead>
 
-                            <table style={bigY}>
-                                <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '70%'}}
-                                           value={this.state.y} onChange={this.handleChange.bind(this)}
-                                           placeholder="Значение Y от -3 до 3" name="y" required/>
+                                    <label style={bigX}>
+                                        Значение X:
+                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение X от -3 до 3"
+                                               name="x" required/>
+                                    </label>
                                 </tr>
+
+                                <tr>
+                                    <label style={bigY}>
+                                        Значение Y:
+                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение Y от -3 до 3"
+                                               name="y" required/>
+                                    </label>
+                                </tr>
+
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '70%'}}
-                                               value={this.state.r} onChange={this.handleChange.bind(this)}
+                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
+                                               onChange={this.handleChange.bind(this)}
                                                placeholder="Значение R от -3 до 3" name="r" required/>
+
                                     </label>
                                 </tr>
                                 </tbody>
+
                                 <tfoot>
                                 {error}
                                 </tfoot>
@@ -274,26 +281,30 @@ class PointForm extends React.Component {
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
                         <div style={{height: '150px'}}>
-                            <table className="radioPanelX" style={bigX}>
-                                <thead>Значение Х</thead>
+                            <table style={formTable}>
+                                <thead>Введите значения</thead>
+
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
-                                           onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3"
-                                           name="x" required/>
-
+                                    <label style={bigX}>
+                                        Значение X:
+                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение X от -3 до 3"
+                                               name="x" required/>
+                                    </label>
                                 </tr>
-                                </tbody>
-                            </table>
 
-                            <table style={bigY}>
-                                <thead>Значение Y</thead>
-                                <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
-                                           onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 3"
-                                           name="y" required/>
+                                    <label style={bigY}>
+                                        Значение Y:
+                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение Y от -3 до 3"
+                                               name="y" required/>
+                                    </label>
                                 </tr>
+
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
@@ -305,13 +316,11 @@ class PointForm extends React.Component {
                                     </label>
                                 </tr>
                                 </tbody>
+
                                 <tfoot>
                                 {error}
                                 </tfoot>
-
                             </table>
-
-
                         </div>
                         <br/>
                         <div>
