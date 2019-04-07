@@ -24,13 +24,13 @@ class MyCanvas extends React.Component {
 
         let all = true;
         this.drawBG(ctx, r);
-        this.props.points.map(
-            point => {
-                return(
-                    all &= this.drawPoint(ctx, point.x, point.y, r)
-                )
-            }
-        );
+        // this.props.points.map(
+        //     point => {
+        //         return(
+        //             all &= this.drawPoint(ctx, point.x, point.y, r)
+        //         )
+        //     }
+        // );
 
         if(!all){
             ctx.fillStyle="red";

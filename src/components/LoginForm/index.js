@@ -39,7 +39,7 @@ class LoginForm extends React.Component{
 
 
     getInit() {{/*TODO?*/}
-        axios.get('http://localhost:8080/results/get', {withCredentials: true})
+        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
                     this.props.setAuthorised();
@@ -62,7 +62,7 @@ class LoginForm extends React.Component{
         var params = new URLSearchParams();
         params.append('username', this.state.username);
         params.append('password', this.state.password);
-        axios.post('http://localhost:8080/login', params, {
+        axios.post('http://localhost:8080/web_4_laba/login', params, {
             withCredentials: true
         }).then(
             response => {

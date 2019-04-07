@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from "../LoginForm";
 import {connect} from "react-redux";
-import axios from "axios";{/*TODO?*/}
+import axios from "axios"; // TODO?
 import {setAuthorised, setUnAuth} from "../../actions/login";
 import {setPoints} from '../../actions/setPoints'
 import './Home.css'
@@ -126,7 +126,7 @@ class Home extends React.Component{
 
 
     logout(){{/*TODO?*/}
-        axios.get('http://localhost:8080/logout',{withCredentials:true})
+        axios.get('http://localhost:8080/web_4_laba/logout',{withCredentials:true})
             .catch(res => {
                 this.props.setUnAuth();
                 this.props.setPoints(null);
@@ -134,7 +134,7 @@ class Home extends React.Component{
     }
 
     testSession() {{/*TODO?*/}
-        axios.get('http://localhost:8080/results/get', {withCredentials: true})
+        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
                     this.props.setAuthorised();

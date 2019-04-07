@@ -7,61 +7,64 @@ import {connect} from "react-redux";
 import MyCanvas from "../MyCanvas";
 import MediaQuery from 'react-responsive'
 
-class PointForm extends React.Component{
+class PointForm extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state =
             {
-                showInv:false,
-                x: "1",
+                showInv: false,
+                x: "",
                 y: "",
-                r: "1"
+                r: ""
             };
         this.testSession = this.testSession.bind(this);
         this.pointFromCanvas = this.pointFromCanvas.bind(this);
     }
 
-    testSession() {{/*TODO?*/}
-        axios.get('http://localhost:8080/results/get', {withCredentials: true})
+    testSession() {
+        {/*TODO?*/
+        }
+        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
-                if(res.status !== 401) {
+                if (res.status !== 401) {
                     this.props.setPoints(res.data);
                     return true;
-                }
-                else return false;
+                } else return false;
             }).catch(err => {
             this.props.setUnAuth();
             return false;
         });
     }
 
-    handleChange(event){
+    handleChange(event) {
         this.setState({[event.target.name]: event.target.value});
-        if(!this.validateY()||!this.validateX()||!this.validateR()) this.showInval();
+        if (!this.validateY() || !this.validateX() || !this.validateR()) this.showInval();
         else this.hideInval();
     }
 
-    showInval(){
+    showInval() {
         this.setState({
             showInv: true
         })
     };
 
-    hideInval(){
+    hideInval() {
         this.setState({
             showInv: false
         })
     };
 
-    handleSubmit(event){{/*TODO?*/}
+    handleSubmit(event) {
+        {/*TODO?*/
+        }
         event.preventDefault();
-        if(this.validateY()){
+        if (this.validateY()) {
             var params = new URLSearchParams();
             params.append('x', this.state.x);
             params.append('y', this.state.y);
             params.append('r', this.state.r);
-            axios.get('http://localhost:8080/results/add',{params, withCredentials:true})
+            axios.get('http://localhost:8080/web_4_laba/hit', {params, withCredentials: true})
                 .then(response => {
                     this.testSession();
                     this.child.updateCanvas(this.state.r);
@@ -73,70 +76,65 @@ class PointForm extends React.Component{
         this.child.updateCanvas(this.state.r);
     }
 
-    pointFromCanvas(x, y, r){
+    pointFromCanvas(x, y, r) {
         this.setState({
             x: x, y: y, r: r
-        }, ()=>{
+        }, () => {
             this.sbf.dispatchEvent(new Event('submit'))
         });
     }
 
 
-    validateY(){
+    validateY() {
         let y = parseFloat(this.state.y);
-        return (y > -3 && y < 3) || (this.state.y === "");
+        return (y >= -3 && y <= 3) || (this.state.y === "");
     }
-    validateX(){
+
+    validateX() {
         let x = parseFloat(this.state.x);
-        return (x > -3 && x < 3) || (this.state.x === "");
+        return (x >= -3 && x <= 3) || (this.state.x === "");
     }
-    validateR(){
+
+    validateR() {
         let r = parseFloat(this.state.r);
-        return (r > -3 && r < 3) || (this.state.r === "");
+        return (r > 0 && r <= 3) || (this.state.r === "");
     }
+
     render() {
         let error;
 
-        var bigX={
+        var formTable = {
             display: 'inline-block',
-            textAlign: 'left',
+            textAlign: 'center',
+            verticalAlign: 'center',
+            float: 'left'
+        };
+
+        var bigX = {
+            display: 'inline-block',
+            textAlign: 'center',
             float: 'left',
             marginLeft: '0',
-            paddingLeft: '80px',
-            border: 'none'
         };
 
-        var smallX={
+        var smallX = {
             display: 'block',
-            textAlign: 'left'
+            textAlign: 'right'
         };
 
-        var bigY ={
+        var bigY = {
             display: 'inline-block',
-            textAlign: 'left',
-            float: 'left',
-            width: '40%',
-            marginTop: '60px',
-            marginRight: '0',
-            border: 'none'
+            textAlign: 'center',
         };
 
-        var smallY={
+        var smallY = {};
 
-        };
-
-        var bigR ={
+        var bigR = {
             display: 'inline-block',
-            textAlign: 'right',
-            float: 'right',
-            marginRight: '20%',
-            font: '20px sans-serif',
-            marginTop: '30px'
+            float: 'center'
         };
 
-        var smallR={
-
-        };
+        var smallR = {};
 
         var buttonBig = {
             padding: '10px 18px',
@@ -159,69 +157,81 @@ class PointForm extends React.Component{
             font: '16pt sans-serif',
         };
 
-        if(!this.validateY()){
-           error = <p className="Inval" style={{color: 'red'}}>Некорректные данные. Y - число (-3..5)</p>;
-        } else error = <p className="Inval" style={{color: 'red'}}> </p>;
-        return(
+        if (!this.validateY() || !this.validateX() || !this.validateR()) {
+            error = <p className="Inval" style={{color: 'red'}}>Некорректные данные</p>;
+        } else error = <p className="Inval" style={{color: 'red'}}/>;
+        return (
+            // TODO
             <div>
                 <MediaQuery minDeviceWidth={1176}>
-                    <form ref={f => this.sbf = f} className="pointForm" style={{marginLeft:'15%', marginRight: '15%', width: '70%'}} onSubmit={this.handleSubmit.bind(this)} >
-                        <div style={{height: '200px'}}>
-                            <table className="radioPanelX" style={bigX}>
-                                <thead>Значение Y</thead>
+                    <form ref={f => this.sbf = f} className="pointForm"
+                          style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
+                          onSubmit={this.handleSubmit.bind(this)}>
+                        <div style={{height: '150px'}}>
+                            <table style={formTable}>
+                                <thead>Введите значения</thead>
+
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '380px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
+                                    <label style={bigX}>
+                                        Значение X:
+                                        <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение X от -3 до 3"
+                                               name="x" required/>
+                                    </label>
                                 </tr>
 
-                                </tbody>
-                            </table>
-
-                            <table style={bigY}>
-                                <thead>Значение Y</thead>
-                                <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '380px'}} value={this.state.y} onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 3" name="y" required/>
+                                    <label style={bigY}>
+                                        Значение Y:
+                                        <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение Y от -3 до 3"
+                                               name="y" required/>
+                                    </label>
                                 </tr>
+
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '380px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
+                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение R от -3 до 3" name="r" required/>
 
                                     </label>
                                 </tr>
                                 </tbody>
+
                                 <tfoot>
                                 {error}
                                 </tfoot>
-
                             </table>
-
-
-
-
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} onRef={ref => this.child = ref}/>
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                                      onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
                         <button type="submit" style={buttonBig}>Check</button>
-
-
                     </form>
                 </MediaQuery>
 
 
                 <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
-                    <form ref={f => this.sbf = f} className="pointForm" style={{marginLeft:'15%', marginRight: '15%', width: '70%'}} onSubmit={this.handleSubmit.bind(this)} >
+                    <form ref={f => this.sbf = f} className="pointForm"
+                          style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
+                          onSubmit={this.handleSubmit.bind(this)}>
                         <div style={{height: '200px'}}>
                             <table className="radioPanelX" style={bigX}>
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '200px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
+                                    <input type="text" className="x" style={{width: '200px'}}
+                                           value={this.state.x} onChange={this.handleChange.bind(this)}
+                                           placeholder="Значение X от -3 до 3" name="x" required/>
                                 </tr>
                                 </tbody>
                             </table>
@@ -230,30 +240,29 @@ class PointForm extends React.Component{
                                 <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '200px'}} value={this.state.y} onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5" name="y" required/>
+                                    <input type="text" className="y" style={{width: '200px'}}
+                                           value={this.state.y} onChange={this.handleChange.bind(this)}
+                                           placeholder="Значение Y от -3 до 5" name="y" required/>
                                 </tr>
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '200px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
-
+                                        <input type="text" className="r" style={{width: '200px'}}
+                                               value={this.state.r} onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение R от -3 до 3" name="r" required/>
                                     </label>
                                 </tr>
                                 </tbody>
                                 <tfoot>
                                 {error}
                                 </tfoot>
-
                             </table>
-
-
-
-
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} onRef={ref => this.child = ref}/>
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                                      onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
                         <button type="submit" style={buttonBig}>Check</button>
@@ -263,13 +272,17 @@ class PointForm extends React.Component{
                 </MediaQuery>
 
                 <MediaQuery maxDeviceWidth={828}>
-                    <form ref={f => this.sbf = f} className="pointForm" style={{marginLeft:'15%', marginRight: '15%', width: '70%'}} onSubmit={this.handleSubmit.bind(this)} >
+                    <form ref={f => this.sbf = f} className="pointForm"
+                          style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
+                          onSubmit={this.handleSubmit.bind(this)}>
                         <div style={{height: '200px'}}>
                             <table className="radioPanelX" style={bigX}>
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '100px'}} value={this.state.x} onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3" name="x" required/>
+                                    <input type="text" className="x" style={{width: '100px'}} value={this.state.x}
+                                           onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3"
+                                           name="x" required/>
 
                                 </tr>
                                 </tbody>
@@ -279,13 +292,17 @@ class PointForm extends React.Component{
                                 <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '100px'}} value={this.state.y} onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5" name="y" required/>
+                                    <input type="text" className="y" style={{width: '100px'}} value={this.state.y}
+                                           onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5"
+                                           name="y" required/>
                                 </tr>
                                 <tr>
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '100px'}} value={this.state.r} onChange={this.handleChange.bind(this)} placeholder="Значение R от -3 до 3" name="r" required/>
+                                        <input type="text" className="r" style={{width: '100px'}} value={this.state.r}
+                                               onChange={this.handleChange.bind(this)}
+                                               placeholder="Значение R от -3 до 3" name="r" required/>
 
                                     </label>
                                 </tr>
@@ -297,12 +314,11 @@ class PointForm extends React.Component{
                             </table>
 
 
-
-
                         </div>
                         <br/>
                         <div>
-                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} onRef={ref => this.child = ref}/>
+                            <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r}
+                                      onRef={ref => this.child = ref}/>
                         </div>
                         <br/>
                         <button type="submit" style={buttonBig}>Check</button>
@@ -314,15 +330,17 @@ class PointForm extends React.Component{
         )
     }
 }
+
 function mapStateToProps(state) {
-    return{
+    return {
         isAuthorised: state.loginReducer.isAuthorised,
         points: state.pointsReducer.points
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return { setAuthorised: () => {
+function mapDispatchToProps(dispatch) {
+    return {
+        setAuthorised: () => {
             dispatch(setAuthorised());
         },
         setUnAuth: () => {
@@ -333,4 +351,5 @@ function mapDispatchToProps(dispatch){
         }
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(PointForm);

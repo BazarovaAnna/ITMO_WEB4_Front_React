@@ -17,7 +17,7 @@ class PointsPage extends React.Component{
     }
 
     testSession() {{/*TODO?*/}
-        axios.get('http://localhost:8080/results/get', {withCredentials: true})
+        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
                     this.props.setPoints(res.data);
@@ -42,7 +42,7 @@ class PointsPage extends React.Component{
             height: '60px',
             font: '20pt sans-serif',
 
-        }
+        };
 
         var buttonSmall = {
             padding: '10px 18px',
@@ -75,7 +75,10 @@ class PointsPage extends React.Component{
             width: '200px'
         };
 
-        if(this.props.isAuthorised && (this.props.points !== null || this.props.points !== undefined))
+        if(
+            // this.props.isAuthorised && (this.props.points !== null || this.props.points !== undefined)
+            true
+        )
         return (
                     <div className='handler'>
                         <h1>Points</h1>
@@ -105,28 +108,28 @@ class PointsPage extends React.Component{
                                     result
                                 </td>
                             </tr>
-                            {
-                                this.props.points.map(
-                                    point => {
-                                        return(
-                                            <tr key={point.id} className="PointRow" style={bigR}>
-                                                <td>
-                                                    {point.x}
-                                                </td>
-                                                <td>
-                                                    {point.y}
-                                                </td>
-                                                <td>
-                                                    {point.r}
-                                                </td>
-                                                <td>
-                                                    {point.entering}
-                                                </td>
-                                            </tr>
-                                        )
-                                    }
-                                )
-                            }
+                            {/*{*/}
+                            {/*    this.props.points.map(*/}
+                            {/*        point => {*/}
+                            {/*            return(*/}
+                            {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.x}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.y}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.r}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.entering}*/}
+                            {/*                    </td>*/}
+                            {/*                </tr>*/}
+                            {/*            )*/}
+                            {/*        }*/}
+                            {/*    )*/}
+                            {/*}*/}
                             </tbody>
                         </table>
                         </MediaQuery>
@@ -149,28 +152,28 @@ class PointsPage extends React.Component{
                                         result
                                     </td>
                                 </tr>
-                                {
-                                    this.props.points.map(
-                                        point => {
-                                            return(
-                                                <tr key={point.id} className="PointRow" style={bigR}>
-                                                    <td>
-                                                        {point.x}
-                                                    </td>
-                                                    <td>
-                                                        {point.y}
-                                                    </td>
-                                                    <td>
-                                                        {point.r}
-                                                    </td>
-                                                    <td>
-                                                        {point.entering}
-                                                    </td>
-                                                </tr>
-                                            )
-                                        }
-                                    )
-                                }
+                                {/*{*/}
+                                {/*    this.props.points.map(*/}
+                                {/*        point => {*/}
+                                {/*            return(*/}
+                                {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.x}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.y}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.r}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.entering}*/}
+                                {/*                    </td>*/}
+                                {/*                </tr>*/}
+                                {/*            )*/}
+                                {/*        }*/}
+                                {/*    )*/}
+                                {/*}*/}
                                 </tbody>
                             </table>
                         </MediaQuery>
@@ -192,41 +195,41 @@ class PointsPage extends React.Component{
                                         result
                                     </td>
                                 </tr>
-                                {
-                                    this.props.points.map(
-                                        point => {
-                                            return(
-                                                <tr key={point.id} className="PointRow" style={bigR}>
-                                                    <td>
-                                                        {point.x}
-                                                    </td>
-                                                    <td>
-                                                        {point.y}
-                                                    </td>
-                                                    <td>
-                                                        {point.r}
-                                                    </td>
-                                                    <td>
-                                                        {point.entering}
-                                                    </td>
-                                                </tr>
-                                            )
-                                        }
-                                    )
-                                }
+                                {/*{*/}
+                                {/*    this.props.points.map(*/}
+                                {/*        point => {*/}
+                                {/*            return(*/}
+                                {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.x}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.y}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.r}*/}
+                                {/*                    </td>*/}
+                                {/*                    <td>*/}
+                                {/*                        {point.entering}*/}
+                                {/*                    </td>*/}
+                                {/*                </tr>*/}
+                                {/*            )*/}
+                                {/*        }*/}
+                                {/*    )*/}
+                                {/*}*/}
                                 </tbody>
                             </table>
                         </MediaQuery>
                     </div>
         );
-        else return(
-            <UnAuthPage/>
-        )
+        // else return(
+        //     <UnAuthPage/>
+        // )
     }
 
 
     logout(){{/*TODO?*/}
-        axios.get('http://localhost:8080/logout',{withCredentials:true})
+        axios.get('http://localhost:8080/web_4_laba/logout',{withCredentials:true})
             .catch(err => {
                     this.props.setUnAuth();
             });
