@@ -167,7 +167,6 @@ class PointForm extends React.Component {
                           onSubmit={this.handleSubmit.bind(this)}>
                         <table width="100%"><tr><td>
                         <div style={{height: '150px'}}>
-
                             <table style={formTable}>
                                 <thead>Введите значения</thead>
 
@@ -266,7 +265,7 @@ class PointForm extends React.Component {
                                 {error}
                                 </tfoot>
                             </table>
-                        </div></td></tr><tr><td>
+                        </div></td><td>
                         <br/>
                         <div style={{width: '30%'}}>
                             <MyCanvas setPoint={this.pointFromCanvas} radius={this.state.r} width={"829<w<1175"}
