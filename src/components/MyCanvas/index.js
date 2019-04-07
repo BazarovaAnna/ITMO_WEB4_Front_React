@@ -98,7 +98,7 @@ class MyCanvas extends React.Component {
         ctx.moveTo(49*w/100, 3*w/10);
         ctx.lineTo(51*w/100, 3*w/10);
         ctx.moveTo(49*w/100, 7*w/10);
-        ctx.lineTo(255, 7*w/10);//7*w/10=350
+        ctx.lineTo(51*w/100, 7*w/10);//7*w/10=350
         ctx.moveTo(49*w/100, 9*w/10);
         ctx.lineTo(51*w/100, 9*w/10);
 
@@ -114,7 +114,7 @@ class MyCanvas extends React.Component {
         ctx.stroke();
 
         ctx.fillStyle="black";
-        ctx.font = "20px Times New Roman bold";
+        ctx.font = w*0.04+"px Times New Roman bold";
 
         if((!isNaN(parseFloat(symbol)))&&(parseFloat(symbol)!=0)){
             ctx.fillText("-"+symbol, 2*w/25, 11*w/20);//2*w/25=40 11*w/20=275
