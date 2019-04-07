@@ -23,8 +23,6 @@ class PointForm extends React.Component {
     }
 
     testSession() {
-        {/*TODO?*/
-        }
         axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if (res.status !== 401) {
@@ -56,8 +54,7 @@ class PointForm extends React.Component {
     };
 
     handleSubmit(event) {
-        {/*TODO?*/
-        }
+
         event.preventDefault();
         if (this.validateY()) {
             var params = new URLSearchParams();

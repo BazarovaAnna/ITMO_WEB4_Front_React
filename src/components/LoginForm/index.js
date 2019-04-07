@@ -38,7 +38,7 @@ class LoginForm extends React.Component{
     };
 
 
-    getInit() {{/*TODO?*/}
+    getInit() {
         axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
@@ -54,7 +54,7 @@ class LoginForm extends React.Component{
         });
     }
 
-    onSubmit(e){{/*TODO?*/}
+    onSubmit(e){
         e.preventDefault();
         // if(this.state.username==='ivanuskov' || this.state.username === 'schwarzsword') {
         //     this.setState({egg: true});

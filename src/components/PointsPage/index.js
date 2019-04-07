@@ -8,7 +8,7 @@ import PointForm from "../PointForm";
 import './PointsPage.css'
 import MediaQuery from 'react-responsive'
 
-class PointsPage extends React.Component{
+class PointsPage extends React.Component {
     constructor(props) {
         super(props);
         this.testSession = this.testSession.bind(this);
@@ -16,15 +16,14 @@ class PointsPage extends React.Component{
         this.logout = this.logout.bind(this);
     }
 
-    testSession() {{/*TODO?*/}
+    testSession() {
         axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
-                if(res.status !== 401) {
+                if (res.status !== 401) {
                     this.props.setPoints(res.data);
                     this.props.setAuthorised();
                     return true;
-                }
-                else return false;
+                } else return false;
             }).catch(err => {
             this.props.setUnAuth();
             return false;
@@ -54,13 +53,13 @@ class PointsPage extends React.Component{
             font: '16pt sans-serif',
         };
 
-        var bigT ={
+        var bigT = {
             font: '20px sans-serif',
             padding: '30px',
             width: '600px'
         };
 
-        var bigR ={
+        var bigR = {
             margin: '30px',
 
         };
@@ -75,34 +74,34 @@ class PointsPage extends React.Component{
             width: '200px'
         };
 
-        if(
+        if (
             // this.props.isAuthorised && (this.props.points !== null || this.props.points !== undefined)
             true
         )
-        return (
-                    <div className='handler'>
-                        <h1>Points</h1>
-                        <MediaQuery minDeviceWidth={1176}>
-                            <button onClick={this.logout} className="ordinary" style={buttonBig}>Logout</button>
-                        </MediaQuery>
+            return (
+                <div className='handler'>
+                    <h1>Points</h1>
+                    <MediaQuery minDeviceWidth={1176}>
+                        <button onClick={this.logout} className="ordinary" style={buttonBig}>Logout</button>
+                    </MediaQuery>
 
-                        <MediaQuery maxDeviceWidth={1175}>
-                            <button onClick={this.logout} className="ordinary" style={buttonSmall}>Logout</button>
-                        </MediaQuery>
-                        <PointForm/>
+                    <MediaQuery maxDeviceWidth={1175}>
+                        <button onClick={this.logout} className="ordinary" style={buttonSmall}>Logout</button>
+                    </MediaQuery>
+                    <PointForm/>
 
-                        <MediaQuery minDeviceWidth={1176}>
+                    <MediaQuery minDeviceWidth={1176}>
                         <table id="pointTable" className="table" style={bigT}>
                             <tbody>
                             <tr className="PointRow" style={bigR}>
                                 <td>
-                                   X
+                                    X
                                 </td>
                                 <td>
-                                   Y
+                                    Y
                                 </td>
                                 <td>
-                                   R
+                                    R
                                 </td>
                                 <td>
                                     result
@@ -132,120 +131,121 @@ class PointsPage extends React.Component{
                             {/*}*/}
                             </tbody>
                         </table>
-                        </MediaQuery>
+                    </MediaQuery>
 
 
-                        <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
-                            <table id="pointTable" className="table" style={mT}>
-                                <tbody>
-                                <tr className="PointRow" style={bigR}>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>
-                                        Y
-                                    </td>
-                                    <td>
-                                        R
-                                    </td>
-                                    <td>
-                                        result
-                                    </td>
-                                </tr>
-                                {/*{*/}
-                                {/*    this.props.points.map(*/}
-                                {/*        point => {*/}
-                                {/*            return(*/}
-                                {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.x}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.y}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.r}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.entering}*/}
-                                {/*                    </td>*/}
-                                {/*                </tr>*/}
-                                {/*            )*/}
-                                {/*        }*/}
-                                {/*    )*/}
-                                {/*}*/}
-                                </tbody>
-                            </table>
-                        </MediaQuery>
+                    <MediaQuery minDeviceWidth={829} maxDeviceWidth={1175}>
+                        <table id="pointTable" className="table" style={mT}>
+                            <tbody>
+                            <tr className="PointRow" style={bigR}>
+                                <td>
+                                    X
+                                </td>
+                                <td>
+                                    Y
+                                </td>
+                                <td>
+                                    R
+                                </td>
+                                <td>
+                                    result
+                                </td>
+                            </tr>
+                            {/*{*/}
+                            {/*    this.props.points.map(*/}
+                            {/*        point => {*/}
+                            {/*            return(*/}
+                            {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.x}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.y}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.r}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.entering}*/}
+                            {/*                    </td>*/}
+                            {/*                </tr>*/}
+                            {/*            )*/}
+                            {/*        }*/}
+                            {/*    )*/}
+                            {/*}*/}
+                            </tbody>
+                        </table>
+                    </MediaQuery>
 
-                        <MediaQuery maxDeviceWidth={828}>
-                            <table id="pointTable" className="table" style={smT}>
-                                <tbody>
-                                <tr className="PointRow" style={bigR}>
-                                    <td>
-                                        X
-                                    </td>
-                                    <td>
-                                        Y
-                                    </td>
-                                    <td>
-                                        R
-                                    </td>
-                                    <td>
-                                        result
-                                    </td>
-                                </tr>
-                                {/*{*/}
-                                {/*    this.props.points.map(*/}
-                                {/*        point => {*/}
-                                {/*            return(*/}
-                                {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.x}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.y}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.r}*/}
-                                {/*                    </td>*/}
-                                {/*                    <td>*/}
-                                {/*                        {point.entering}*/}
-                                {/*                    </td>*/}
-                                {/*                </tr>*/}
-                                {/*            )*/}
-                                {/*        }*/}
-                                {/*    )*/}
-                                {/*}*/}
-                                </tbody>
-                            </table>
-                        </MediaQuery>
-                    </div>
-        );
+                    <MediaQuery maxDeviceWidth={828}>
+                        <table id="pointTable" className="table" style={smT}>
+                            <tbody>
+                            <tr className="PointRow" style={bigR}>
+                                <td>
+                                    X
+                                </td>
+                                <td>
+                                    Y
+                                </td>
+                                <td>
+                                    R
+                                </td>
+                                <td>
+                                    result
+                                </td>
+                            </tr>
+                            {/*{*/}
+                            {/*    this.props.points.map(*/}
+                            {/*        point => {*/}
+                            {/*            return(*/}
+                            {/*                <tr key={point.id} className="PointRow" style={bigR}>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.x}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.y}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.r}*/}
+                            {/*                    </td>*/}
+                            {/*                    <td>*/}
+                            {/*                        {point.entering}*/}
+                            {/*                    </td>*/}
+                            {/*                </tr>*/}
+                            {/*            )*/}
+                            {/*        }*/}
+                            {/*    )*/}
+                            {/*}*/}
+                            </tbody>
+                        </table>
+                    </MediaQuery>
+                </div>
+            );
         // else return(
         //     <UnAuthPage/>
         // )
     }
 
 
-    logout(){{/*TODO?*/}
-        axios.get('http://localhost:8080/web_4_laba/logout',{withCredentials:true})
+    logout() {
+        axios.get('http://localhost:8080/web_4_laba/logout', {withCredentials: true})
             .catch(err => {
-                    this.props.setUnAuth();
+                this.props.setUnAuth();
             });
     }
 
 }
 
 function mapStateToProps(state) {
-    return{
+    return {
         isAuthorised: state.loginReducer.isAuthorised,
         points: state.pointsReducer.points
     }
 }
 
-function mapDispatchToProps(dispatch){
-    return { setAuthorised: () => {
+function mapDispatchToProps(dispatch) {
+    return {
+        setAuthorised: () => {
             dispatch(setAuthorised());
         },
         setUnAuth: () => {

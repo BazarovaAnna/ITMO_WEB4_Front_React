@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from "../LoginForm";
 import {connect} from "react-redux";
-import axios from "axios"; // TODO?
+import axios from "axios"; //
 import {setAuthorised, setUnAuth} from "../../actions/login";
 import {setPoints} from '../../actions/setPoints'
 import './Home.css'
@@ -125,7 +125,7 @@ class Home extends React.Component{
     }
 
 
-    logout(){{/*TODO?*/}
+    logout(){
         axios.get('http://localhost:8080/web_4_laba/logout',{withCredentials:true})
             .catch(res => {
                 this.props.setUnAuth();
@@ -133,7 +133,7 @@ class Home extends React.Component{
             });
     }
 
-    testSession() {{/*TODO?*/}
+    testSession() {
         axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
