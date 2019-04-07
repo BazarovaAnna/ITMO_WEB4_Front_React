@@ -221,12 +221,12 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
-                        <div style={{height: '200px'}}>
+                        <div style={{height: '150px'}}>
                             <table className="radioPanelX" style={bigX}>
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '200px'}}
+                                    <input type="text" className="x" style={{width: '70%'}}
                                            value={this.state.x} onChange={this.handleChange.bind(this)}
                                            placeholder="Значение X от -3 до 3" name="x" required/>
                                 </tr>
@@ -237,7 +237,7 @@ class PointForm extends React.Component {
                                 <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '200px'}}
+                                    <input type="text" className="y" style={{width: '70%'}}
                                            value={this.state.y} onChange={this.handleChange.bind(this)}
                                            placeholder="Значение Y от -3 до 5" name="y" required/>
                                 </tr>
@@ -245,7 +245,7 @@ class PointForm extends React.Component {
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '200px'}}
+                                        <input type="text" className="r" style={{width: '70%'}}
                                                value={this.state.r} onChange={this.handleChange.bind(this)}
                                                placeholder="Значение R от -3 до 3" name="r" required/>
                                     </label>
@@ -272,12 +272,12 @@ class PointForm extends React.Component {
                     <form ref={f => this.sbf = f} className="pointForm"
                           style={{marginLeft: '15%', marginRight: '15%', width: '70%'}}
                           onSubmit={this.handleSubmit.bind(this)}>
-                        <div style={{height: '200px'}}>
+                        <div style={{height: '150px'}}>
                             <table className="radioPanelX" style={bigX}>
                                 <thead>Значение Х</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="x" style={{width: '100px'}} value={this.state.x}
+                                    <input type="text" className="x" style={{width: '70%'}} value={this.state.x}
                                            onChange={this.handleChange.bind(this)} placeholder="Значение X от -3 до 3"
                                            name="x" required/>
 
@@ -289,7 +289,7 @@ class PointForm extends React.Component {
                                 <thead>Значение Y</thead>
                                 <tbody>
                                 <tr>
-                                    <input type="text" className="y" style={{width: '100px'}} value={this.state.y}
+                                    <input type="text" className="y" style={{width: '70%'}} value={this.state.y}
                                            onChange={this.handleChange.bind(this)} placeholder="Значение Y от -3 до 5"
                                            name="y" required/>
                                 </tr>
@@ -297,7 +297,7 @@ class PointForm extends React.Component {
                                     {/*radius*/}
                                     <label style={bigR}>
                                         Значение R:
-                                        <input type="text" className="r" style={{width: '100px'}} value={this.state.r}
+                                        <input type="text" className="r" style={{width: '70%'}} value={this.state.r}
                                                onChange={this.handleChange.bind(this)}
                                                placeholder="Значение R от -3 до 3" name="r" required/>
 
