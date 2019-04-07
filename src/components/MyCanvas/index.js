@@ -184,7 +184,7 @@ class MyCanvas extends React.Component {
     render() {
         let width=this.props.width;
         let w;
-        if(width==="w>1176"){
+        if(width==="w>1176"){//TODO
             w=400;
         }else if(width==="829<w<1175"){
             w=200;
