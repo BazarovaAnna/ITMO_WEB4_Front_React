@@ -191,6 +191,7 @@ class MyCanvas extends React.Component {
         }else if(width==="x<828"){
             w=300
         }else {w=400}
+        // todo вот здесь
         return (
             <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={w} height={w}/>
         );
