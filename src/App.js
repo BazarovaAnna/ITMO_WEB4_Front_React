@@ -20,7 +20,7 @@ const App = () => (
         </div>
 
         <Switch>
-            <Route exact path='/' component={Home}/> {/*TODO?*/}
+            <Route exact path='/' component={Home}/>
             <Route pattern='/main' component={PointsPage}/>
             {/*<Route pattern='/unauthorised' component={UnAuthPage}/>*/}
         </Switch>

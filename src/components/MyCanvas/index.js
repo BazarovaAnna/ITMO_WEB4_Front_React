@@ -23,7 +23,7 @@ class MyCanvas extends React.Component {
         const ctx = this.refs.canvas.getContext('2d');
         let width=this.props.width;
         let w;
-        if(width==="w>1176"){
+        if(width==="w>1176"){//TODO need to think, how big these widths will be
             w=400;
         }else if(width==="829<w<1175"){
             w=200;
