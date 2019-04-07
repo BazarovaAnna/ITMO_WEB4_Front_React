@@ -193,7 +193,7 @@ class MyCanvas extends React.Component {
         }else {w=400}
         // todo вот здесь
         return (
-            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas" width={w} height={w}/>
+            <canvas onClick={this.interactiveCanvas.bind(this)} onMouseMove={this._onMouseMove.bind(this)} ref="canvas"/>
         );
     }
 }
