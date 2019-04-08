@@ -124,7 +124,7 @@ class PointsPage extends React.Component {
                                                     {point.r}
                                                 </td>
                                                 <td>
-                                                    {point.match}
+                                                    {point.match ? 'hit' : 'miss'}
                                                 </td>
                                             </tr>
                                         )
@@ -168,7 +168,7 @@ class PointsPage extends React.Component {
                                                     {point.r}
                                                 </td>
                                                 <td>
-                                                    {point.match}
+                                                    {point.match ? 'hit' : 'miss'}
                                                 </td>
                                             </tr>
                                         )
@@ -211,7 +211,7 @@ class PointsPage extends React.Component {
                                                     {point.r}
                                                 </td>
                                                 <td>
-                                                    {point.match}
+                                                    {point.match ? 'hit' : 'miss'}
                                                 </td>
                                             </tr>
                                         )
