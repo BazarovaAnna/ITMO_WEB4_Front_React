@@ -16,14 +16,14 @@ class PointForm extends React.Component {
                 showInv: false,
                 x: "",
                 y: "",
-                r: ""
+                r: "1"
             };
         this.testSession = this.testSession.bind(this);
         this.pointFromCanvas = this.pointFromCanvas.bind(this);
     }
 
     testSession() {
-        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
+        axios.get('http://localhost:8080/get_hits', {withCredentials: true})
             .then(res => {
                 if (res.status !== 401) {
                     this.props.setPoints(res.data);
@@ -57,11 +57,11 @@ class PointForm extends React.Component {
 
         event.preventDefault();
         if (this.validateY()&&this.validateX()&&this.validateR()) {
-            var params = new URLSearchParams();
+            let params = new URLSearchParams();
             params.append('x', this.state.x);
             params.append('y', this.state.y);
             params.append('r', this.state.r);
-            axios.get('http://localhost:8080/web_4_laba/hit', {params, withCredentials: true})
+            axios.get('http://localhost:8080/hit', {params, withCredentials: true})
                 .then(response => {
                     this.testSession();
                     this.child.updateCanvas(this.state.r);

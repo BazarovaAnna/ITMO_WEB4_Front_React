@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import {Route, Switch} from 'react-router'
 import PointsPage from './components/PointsPage'
 import Home from "./components/Home";
-import UnAuthPage from "./components/UnAuthPage";
+// import UnAuthPage from "./components/UnAuthPage";
 import './App.css'
 
 

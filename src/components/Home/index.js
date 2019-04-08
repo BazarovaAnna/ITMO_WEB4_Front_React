@@ -9,6 +9,7 @@ import MediaQuery from 'react-responsive'
 
 class Home extends React.Component{
 
+
     constructor(props){
         super(props);
         this.testSession = this.testSession.bind(this);
@@ -126,7 +127,7 @@ class Home extends React.Component{
 
 
     logout(){
-        axios.get('http://localhost:8080/web_4_laba/logout',{withCredentials:true})
+        axios.get('/logout',{withCredentials:true})
             .catch(res => {
                 this.props.setUnAuth();
                 this.props.setPoints(null);
@@ -134,7 +135,7 @@ class Home extends React.Component{
     }
 
     testSession() {
-        axios.get('http://localhost:8080/web_4_laba/get_hits', {withCredentials: true})
+        axios.get('/get_hits', {withCredentials: true})
             .then(res => {
                 if(res.status !== 401) {
                     this.props.setAuthorised();
