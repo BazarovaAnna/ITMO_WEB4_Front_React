@@ -40,8 +40,8 @@ class Home extends React.Component{
             height: '60px',
             font: '16pt sans-serif',
         };
-
-        if(this.props.isAuthorised) {
+        // console.log(this.props + "Home");
+        if( this.props.isAuthorised ) {
             return (
                 <div>
                     <MediaQuery minDeviceWidth={1176}>
@@ -127,7 +127,11 @@ class Home extends React.Component{
 
 
     logout(){
-        axios.get('/logout',{withCredentials:true})
+        console.log("logout");
+        axios.get('http://localhost:8080/logout',{withCredentials:true})
+            .then(res =>{
+                // console.log(res);
+            })
             .catch(res => {
                 this.props.setUnAuth();
                 this.props.setPoints(null);
@@ -135,9 +139,10 @@ class Home extends React.Component{
     }
 
     testSession() {
-        axios.get('/get_hits', {withCredentials: true})
+        axios.get('http://localhost:8080/get_hits', {withCredentials: true})
             .then(res => {
-                if(res.status !== 401) {
+                console.log(res);
+                if(res.status === 200) {
                     this.props.setAuthorised();
                     this.props.setPoints(res.data);
                     return true;
@@ -157,7 +162,8 @@ function mapStateToProps(state){
 
 
 function mapDispatchToProps(dispatch){
-    return { setAuthorised: () => {
+    return {
+        setAuthorised: () => {
             dispatch(setAuthorised());
         },
         setUnAuth: () => {

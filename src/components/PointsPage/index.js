@@ -78,17 +78,20 @@ class PointsPage extends React.Component {
 
         if (
             this.props.isAuthorised && !(this.props.points === null || this.props.points === undefined)
-            // true
+        // true
         )
             return (
                 <div className='handler'>
                     <h1>Points</h1>
                     <MediaQuery minDeviceWidth={1176}>
-                        <button onClick={this.logout} className="ordinary" style={buttonBig}>Logout</button>
+                        <button onClick={this.logout} className="ordinary" style={buttonBig} hidden={"hidden"}>Logout
+                        </button>
                     </MediaQuery>
 
                     <MediaQuery maxDeviceWidth={1175}>
-                        <button onClick={this.logout} className="ordinary" style={buttonSmall}>Logout</button>
+                        <button onClick={this.logout} className="ordinary" style={buttonSmall}
+                                hidden={"hidden"}>Logout
+                        </button>
                     </MediaQuery>
                     <PointForm/>
 
@@ -97,13 +100,13 @@ class PointsPage extends React.Component {
                             <tbody>
                             <tr className="PointRow" style={bigR}>
                                 <td>
-                                    X
+                                    x
                                 </td>
                                 <td>
-                                    Y
+                                    y
                                 </td>
                                 <td>
-                                    R
+                                    r
                                 </td>
                                 <td>
                                     result
@@ -112,7 +115,7 @@ class PointsPage extends React.Component {
                             {
                                 this.props.points.map(
                                     point => {
-                                        return(
+                                        return (
                                             <tr key={point.id} className="PointRow" style={bigR}>
                                                 <td>
                                                     {point.x}
@@ -156,7 +159,7 @@ class PointsPage extends React.Component {
                             {
                                 this.props.points.map(
                                     point => {
-                                        return(
+                                        return (
                                             <tr key={point.id} className="PointRow" style={bigR}>
                                                 <td>
                                                     {point.x}
@@ -199,7 +202,7 @@ class PointsPage extends React.Component {
                             {
                                 this.props.points.map(
                                     point => {
-                                        return(
+                                        return (
                                             <tr key={point.id} className="PointRow" style={bigR}>
                                                 <td>
                                                     {point.x}
@@ -223,7 +226,7 @@ class PointsPage extends React.Component {
                     </MediaQuery>
                 </div>
             );
-        else return(
+        else return (
             <UnAuthPage/>
         )
     }
